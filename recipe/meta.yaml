@@ -23,8 +23,8 @@ requirements:
 
   run:
     - python
-    - openpyxl >=2.4.4
-    - pyexcel-io >=0.5.0
+    - openpyxl >=2.6.1
+    - pyexcel-io >=0.6.2
 
 test:
   imports:
