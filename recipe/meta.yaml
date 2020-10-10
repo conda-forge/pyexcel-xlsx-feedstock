@@ -1,6 +1,6 @@
 {% set name = "pyexcel-xlsx" %}
-{% set version = "0.5.8" %}
-{% set sha256 = "ab3913b465d0d645a51e3c896dc006738a398d36ceaad2dad133056132facb92" %}
+{% set version = "0.6.0" %}
+{% set sha256 = "55754f764252461aca6871db203f4bd1370ec877828e305e6be1de5f9aa6a79d" %}
 
 package:
   name: {{ name|lower }}
@@ -14,17 +14,17 @@ source:
 build:
   noarch: python
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
-  build:
+  host:
+    - pip
     - python
-    - setuptools
-
+    
   run:
     - python
-    - openpyxl >=2.4.4
-    - pyexcel-io >=0.5.0
+    - openpyxl >=2.6.1
+    - pyexcel-io >=0.6.2
 
 test:
   imports:
@@ -35,7 +35,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'A wrapper library to read, manipulate and write data in xlsx and xlsm format using openpyxl'
+  summary: A wrapper library to read, manipulate and write data in xlsx and xlsm format using openpyxl
   description: |
     'A wrapper library to read, manipulate and write data in xlsx and xlsm ' +
     'format' +
